@@ -8,7 +8,7 @@
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prettier:fix:all": "prettier --write",
+    "prettier:fix": "prettier --write .",
     "lint": "ng lint"
   },
   "private": true,
@@ -45,6 +45,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "^2.8.8",
+    "prettier-plugin-organize-attributes": "^0.0.5",
     "typescript": "~5.1.3"
   }
 }
