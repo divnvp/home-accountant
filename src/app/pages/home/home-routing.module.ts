@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeLayoutComponent } from '../../components/home-layout/home-layout.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
+import { BoardsComponent } from '../boards/boards.component';
+import { TablesComponent } from '../tables/tables.component';
+import { ChartsComponent } from '../charts/charts.component';
+import { SettingsComponent } from '../settings/settings.component';
 
 const routes: Routes = [
   {
@@ -14,23 +19,23 @@ const routes: Routes = [
       },
       {
         path: 'welcome',
-        loadChildren: () => import('../welcome/welcome.module').then(m => m.WelcomeModule),
+        component: WelcomeComponent,
       },
       {
         path: 'boards',
-        loadChildren: () => import('../boards/boards.module').then(m => m.BoardsModule),
+        component: BoardsComponent,
       },
       {
         path: 'tables',
-        loadChildren: () => import('../tables/tables.module').then(m => m.TablesModule),
+        component: TablesComponent,
       },
       {
         path: 'charts',
-        loadChildren: () => import('../charts/charts.module').then(m => m.ChartsModule),
+        component: ChartsComponent,
       },
       {
         path: 'settings',
-        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsModule),
+        component: SettingsComponent,
       },
     ],
   },
