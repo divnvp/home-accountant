@@ -1,0 +1,10 @@
+html,
+html > body {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+html > body {
+  font: var(--tui-font-text-m);
+}

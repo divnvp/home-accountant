@@ -1,0 +1,11 @@
+.page-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex: 1;
+
+  width: 100vw;
+  min-height: 100vh;
+
+  padding: .5rem 1rem;
+}

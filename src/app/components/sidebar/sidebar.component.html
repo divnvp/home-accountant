@@ -1,1 +1,13 @@
-<p>sidebar works!</p>
+<div>
+  <button
+    tuiIconButton
+    type="button"
+    appearance="icon"
+    icon="tuiIconAlignJustifyLarge"
+    (click)="showMenu()"
+  ></button>
+
+  <ng-container *ngIf="show">
+    <ha-menu></ha-menu>
+  </ng-container>
+</div>
