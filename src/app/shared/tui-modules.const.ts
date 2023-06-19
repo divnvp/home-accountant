@@ -44,8 +44,9 @@ import {
 import { TuiActiveZoneModule, TuiAutoFocusModule, TuiLetModule } from '@taiga-ui/cdk';
 import { TuiCurrencyPipeModule } from '@taiga-ui/addon-commerce';
 import { TuiTableModule } from '@taiga-ui/addon-table';
-import { TuiAppBarModule } from '@taiga-ui/addon-mobile';
+import { TuiAppBarModule, TuiSheetModule } from '@taiga-ui/addon-mobile';
 import { PolymorpheusModule } from '@tinkoff/ng-polymorpheus';
+import { TuiBlockStatusModule } from '@taiga-ui/layout';
 
 export const TUI_MODULES = [
   TuiInputModule,
@@ -93,5 +94,7 @@ export const TUI_MODULES = [
   TuiMultiSelectModule,
   TuiAppBarModule,
   TuiRootModule,
+  TuiSheetModule,
+  TuiBlockStatusModule,
   PolymorpheusModule,
 ];
