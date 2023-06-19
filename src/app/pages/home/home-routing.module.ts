@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageComponent } from '../../components/page/page.component';
+import { HomeLayoutComponent } from '../../components/home-layout/home-layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PageComponent,
+    component: HomeLayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'welcome',
+        pathMatch: 'full',
+      },
+      {
+        path: 'welcome',
+        loadChildren: () => import('../welcome/welcome.module').then(m => m.WelcomeModule),
+      },
+    ],
   },
 ];
 
