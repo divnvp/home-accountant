@@ -22,6 +22,7 @@ import {
   TuiTabsModule,
   TuiTagModule,
   TuiTextAreaModule,
+  TuiTilesModule,
   TuiToggleModule,
 } from '@taiga-ui/kit';
 import {
@@ -100,5 +101,6 @@ export const TUI_MODULES = [
   TuiBlockStatusModule,
   TuiThemeNightModule,
   TuiModeModule,
+  TuiTilesModule,
   PolymorpheusModule,
 ];

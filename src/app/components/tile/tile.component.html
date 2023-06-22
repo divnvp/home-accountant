@@ -1,0 +1,47 @@
+<div class="tui-space_bottom-5">
+  <button
+    tuiButton
+    appearance="outline"
+    icon="tuiIconPlusLarge"
+    tuiHint="Создать новую доску"
+    tuiHintDirection="right"
+    tuiHintDescribe
+    (click)="createBoard()"
+  >
+    Создать
+  </button>
+</div>
+
+<div>
+  <tui-tiles
+    *ngIf="boards.length; else noItems"
+    class="tiles"
+    [debounce]="500"
+    [(order)]="order"
+  >
+    <tui-tile
+      *ngFor="let item of boards; let index = index"
+      class="tile"
+      [style.order]="order.get(index)"
+      [width]="item.width"
+      [height]="item.height"
+    >
+      <div
+        class="content"
+      >
+        <tui-svg
+          tuiTileHandle
+          src="tuiIconDragLarge"
+          class="handle"
+        ></tui-svg>
+        {{ item.content }}
+      </div>
+    </tui-tile>
+  </tui-tiles>
+
+  <ng-template #noItems>
+    <div>
+      Нет созданных досок
+    </div>
+  </ng-template>
+</div>

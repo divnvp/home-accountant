@@ -10,6 +10,7 @@ import { WelcomeModule } from '../pages/welcome/welcome.module';
 import { BoardsModule } from '../pages/boards/boards.module';
 import { DarkThemeModule } from '../components/dark-theme/dark-theme.module';
 import { DarkThemeToggleModule } from '../components/dark-theme-toggle/dark-theme-toggle.module';
+import { TileModule } from '../components/tile/tile.module';
 
 export const MODULES = [
   HomeModule,
@@ -24,4 +25,5 @@ export const MODULES = [
   BoardsModule,
   DarkThemeModule,
   DarkThemeToggleModule,
+  TileModule,
 ];
