@@ -1,0 +1,15 @@
+:root {
+  background-color: #1c1c1c;
+  // Primary
+  --tui-primary-text: var(--tui-text-01-night);
+  --tui-primary: var(--tui-link-night);
+  --tui-primary-hover: var(--tui-positive-night-hover);
+  --tui-primary-active: var(--tui-positive-night);
+
+  // Link
+  --tui-link: var(--tui-link-night);
+  --tui-link-hover: var(--tui-link-night-hover);
+
+  // Selection
+  --tui-selection: var(--tui-negative-night-hover);
+}

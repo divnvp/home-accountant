@@ -8,6 +8,8 @@ import { SettingsModule } from '../pages/settings/settings.module';
 import { TablesModule } from '../pages/tables/tables.module';
 import { WelcomeModule } from '../pages/welcome/welcome.module';
 import { BoardsModule } from '../pages/boards/boards.module';
+import { DarkThemeModule } from '../components/dark-theme/dark-theme.module';
+import { DarkThemeToggleModule } from '../components/dark-theme-toggle/dark-theme-toggle.module';
 
 export const MODULES = [
   HomeModule,
@@ -20,4 +22,6 @@ export const MODULES = [
   TablesModule,
   WelcomeModule,
   BoardsModule,
+  DarkThemeModule,
+  DarkThemeToggleModule,
 ];

@@ -36,10 +36,12 @@ import {
   TuiLabelModule,
   TuiLinkModule,
   TuiLoaderModule,
+  TuiModeModule,
   TuiNotificationModule,
   TuiRootModule,
   TuiSvgModule,
   TuiTextfieldControllerModule,
+  TuiThemeNightModule,
 } from '@taiga-ui/core';
 import { TuiActiveZoneModule, TuiAutoFocusModule, TuiLetModule } from '@taiga-ui/cdk';
 import { TuiCurrencyPipeModule } from '@taiga-ui/addon-commerce';
@@ -96,5 +98,7 @@ export const TUI_MODULES = [
   TuiRootModule,
   TuiSheetModule,
   TuiBlockStatusModule,
+  TuiThemeNightModule,
+  TuiModeModule,
   PolymorpheusModule,
 ];

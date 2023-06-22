@@ -1,0 +1,10 @@
+<div tuiMode="onDark">
+  <tui-toggle
+    size="l"
+    [ngModel]="toggle"
+    (ngModelChange)="changeToggle($event)"
+  ></tui-toggle>
+  Тёмная тема
+
+  <ha-dark-theme *ngIf="toggle"></ha-dark-theme>
+</div>
