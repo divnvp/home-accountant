@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StateService } from './services/state.service';
 import { TuiBrightness } from '@taiga-ui/core';
 
@@ -7,7 +7,7 @@ import { TuiBrightness } from '@taiga-ui/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private onDark = this.service.darkThemeState$;
 
   get nameTheme(): TuiBrightness | null {
@@ -18,4 +18,14 @@ export class AppComponent {
   }
 
   constructor(private service: StateService) {}
+
+  ngOnInit(): void {
+    this.generateLocalStorageKey();
+  }
+
+  private generateLocalStorageKey() {
+    if (localStorage?.getItem('boards') === null || localStorage?.getItem('boards') === undefined) {
+      localStorage.setItem('boards', JSON.stringify([]));
+    }
+  }
 }

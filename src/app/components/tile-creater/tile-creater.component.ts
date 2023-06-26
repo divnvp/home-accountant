@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { v4 as uuidv4 } from 'uuid';
 import { StateService } from '../../services/state.service';
 
 @Component({
@@ -23,9 +24,15 @@ export class TileCreaterComponent {
 
   public onSubmit() {
     this.service.boards$.next(
-      this.service.boards$.getValue()?.concat({ width: 3, height: 1, content: String(this.form.value.tileName) }),
+      this.service.boards$.value?.concat({
+        id: uuidv4(),
+        width: 1,
+        height: 1,
+        content: String(this.form.value.tileName),
+      }),
     );
-    localStorage.setItem('boards', JSON.stringify(this.service.boards$.getValue()));
+
+    localStorage.setItem('boards', JSON.stringify(this.service.boards$.value));
 
     this.openedDialog = false;
     this.form.reset();

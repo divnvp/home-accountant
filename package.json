@@ -31,6 +31,7 @@
     "@taiga-ui/layout": "^3.32.0",
     "@taiga-ui/styles": "^3.32.0",
     "@tinkoff/ng-polymorpheus": "^4.1.0",
+    "@types/uuid": "^9.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

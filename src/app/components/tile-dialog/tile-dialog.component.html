@@ -1,0 +1,48 @@
+<div class="tui-text_h4">
+  {{ data.content }}
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="tui-form__row">
+  <div class="tui-form__row">
+    <tui-input formControlName="title">
+      Вы можете ввести новое название
+      <input tuiTextfield type="text" [placeholder]="data.content">
+    </tui-input>
+  </div>
+  <div class="tui-form__row tui-row">
+    <div class="tui-col_6">
+      <tui-input-number formControlName="width">
+        Ширина доски
+        <input tuiTextfield type="number" [placeholder]="data.width">
+      </tui-input-number>
+    </div>
+    <div class="tui-col_6">
+      <tui-input-number formControlName="height">
+        Высота доски
+        <input tuiTextfield type="number" [placeholder]="data.height">
+      </tui-input-number>
+    </div>
+  </div>
+
+  <div class="tui-form__buttons tui-form__buttons_align_end">
+    <button
+      tuiButton
+      type="button"
+      size="m"
+      appearance="secondary"
+      class="tui-form__button"
+      (click)="close()"
+    >
+      Закрыть
+    </button>
+    <button
+      tuiButton
+      type="submit"
+      size="m"
+      appearance="primary"
+      class="tui-form__button"
+    >
+      Сохранить
+    </button>
+  </div>
+</form>
