@@ -28,6 +28,7 @@ import {
 import {
   TuiButtonModule,
   TuiDataListModule,
+  TuiDialogModule,
   TuiDropdownModule,
   TuiErrorModule,
   TuiExpandModule,
@@ -102,5 +103,6 @@ export const TUI_MODULES = [
   TuiThemeNightModule,
   TuiModeModule,
   TuiTilesModule,
+  TuiDialogModule,
   PolymorpheusModule,
 ];

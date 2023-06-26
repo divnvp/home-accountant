@@ -4,7 +4,7 @@
 }
 
 .tile:before {
-  content: 'Drop here';
+  content: 'Вставить сюда';
   display: flex;
   height: 100%;
   justify-content: center;
@@ -23,6 +23,8 @@
   border-radius: var(--tui-radius-l);
   border: 1px solid var(--tui-base-03);
   overflow: hidden;
+
+  cursor: pointer;
 }
 
 .title {

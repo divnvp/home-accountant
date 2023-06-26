@@ -1,22 +1,9 @@
-<div class="tui-space_bottom-5">
-  <button
-    tuiButton
-    appearance="outline"
-    icon="tuiIconPlusLarge"
-    tuiHint="Создать новую доску"
-    tuiHintDirection="right"
-    tuiHintDescribe
-    (click)="createBoard()"
-  >
-    Создать
-  </button>
-</div>
+<ha-tile-creater></ha-tile-creater>
 
-<div>
+<div *tuiLet="(boards$ | async) as boards">
   <tui-tiles
-    *ngIf="boards.length; else noItems"
+    *ngIf="boards?.length; else noItems"
     class="tiles"
-    [debounce]="500"
     [(order)]="order"
   >
     <tui-tile

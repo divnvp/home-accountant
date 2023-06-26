@@ -7,5 +7,7 @@ import { Board } from '../models/board';
 })
 export class StateService {
   public darkThemeState$ = new BehaviorSubject<boolean>(JSON.parse(localStorage.getItem('dark-theme')!));
-  public boards$ = new BehaviorSubject<Board[]>([]);
+  public boards$ = new BehaviorSubject<Board[]>(
+    localStorage?.getItem('boards') ? JSON.parse(localStorage.getItem('boards')!) : [],
+  );
 }

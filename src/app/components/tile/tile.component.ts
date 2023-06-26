@@ -8,10 +8,8 @@ import { StateService } from '../../services/state.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TileComponent {
-  public boards = this.service.boards$.getValue();
+  public boards$ = this.service.boards$;
   public order = new Map();
 
   constructor(private service: StateService) {}
-
-  public createBoard(): void {}
 }

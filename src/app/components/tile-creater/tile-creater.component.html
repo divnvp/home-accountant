@@ -1,0 +1,39 @@
+<div class="tui-space_bottom-5">
+  <button
+    tuiButton
+    appearance="outline"
+    icon="tuiIconPlusLarge"
+    tuiHint="Создать новую доску"
+    tuiHintDirection="right"
+    tuiHintDescribe
+    (click)="createBoard()"
+  >
+    Создать
+  </button>
+</div>
+
+<ng-template
+  [tuiDialogOptions]="{ label: 'Создать новую доску', size: 's' }"
+  [(tuiDialog)]="openedDialog"
+>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <p>Укажите название доски</p>
+    <tui-input
+      tuiAutoFocus
+      formControlName="tileName"
+    >
+      Например, вафельница
+    </tui-input>
+    <p>
+      <button
+        tuiButton
+        type="submit"
+      >
+        Сохранить
+      </button>
+    </p>
+  </form>
+</ng-template>
