@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StateService } from './services/state.service';
 import { TuiBrightness } from '@taiga-ui/core';
+import { Store } from '@ngrx/store';
+import { State } from './store/reducer';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +19,11 @@ export class AppComponent implements OnInit {
     return theme;
   }
 
-  constructor(private service: StateService) {}
+  constructor(private service: StateService, private readonly store$: Store<State>) {}
 
   ngOnInit(): void {
     this.generateLocalStorageKey();
+    this.store$.subscribe();
   }
 
   private generateLocalStorageKey() {

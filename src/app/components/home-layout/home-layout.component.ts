@@ -6,4 +6,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./home-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeLayoutComponent {}
+export class HomeLayoutComponent {
+  public show = true;
+
+  public getShow(event: boolean) {
+    this.show = event;
+  }
+}

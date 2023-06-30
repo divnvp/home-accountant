@@ -1,9 +1,11 @@
 <div class="page-layout">
-  <aside>
-    <ha-sidebar></ha-sidebar>
-  </aside>
+  <div class="tui-row" style="width: 100%">
+    <div [class.tui-col_3]="show" [class.tui-col_1]="!show" style="padding-right: 0">
+      <ha-sidebar (send)="getShow($event)"></ha-sidebar>
+    </div>
 
-  <main>
-    <ha-home></ha-home>
-  </main>
+    <div class="tui-col_9" [style.width]="!show ? '90%' : ''" style="padding: 0">
+      <ha-home></ha-home>
+    </div>
+  </div>
 </div>

@@ -13,6 +13,7 @@ import { DarkThemeToggleModule } from '../components/dark-theme-toggle/dark-them
 import { TileModule } from '../components/tile/tile.module';
 import { TileCreaterModule } from '../components/tile-creater/tile-creater.module';
 import { TileDialogModule } from '../components/tile-dialog/tile-dialog.module';
+import { MenuSegmentModule } from '../components/menu-segment/menu-segment.module';
 
 export const MODULES = [
   HomeModule,
@@ -30,4 +31,5 @@ export const MODULES = [
   TileModule,
   TileCreaterModule,
   TileDialogModule,
+  MenuSegmentModule,
 ];

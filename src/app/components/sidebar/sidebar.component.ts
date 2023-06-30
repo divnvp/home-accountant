@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'ha-sidebar',
@@ -7,9 +7,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
+  @Output() send: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public show = true;
 
-  showMenu(): void {
+  public showMenu(): void {
     this.show = !this.show;
+
+    this.send.emit(this.show);
   }
 }

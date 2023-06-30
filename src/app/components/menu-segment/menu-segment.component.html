@@ -1,0 +1,13 @@
+<section *ngIf="segment">
+  <a
+    tuiButton
+    type="button"
+    appearance="flat"
+    [icon]="segment.icon"
+    [pseudoHover]="pseudoActive"
+    [routerLink]="segment.routerLink"
+    [pseudoActive]="segment.pseudoActive"
+  >
+    {{ segment.title }}
+  </a>
+</section>
