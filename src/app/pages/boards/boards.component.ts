@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { BoardsService } from '../../services/boards/boards.service';
 
 @Component({
   selector: 'ha-boards',
@@ -6,4 +7,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./boards.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BoardsComponent {}
+export class BoardsComponent implements OnInit {
+  constructor(private readonly service: BoardsService) {}
+
+  ngOnInit(): void {
+    this.getBoards();
+  }
+
+  private getBoards(): void {
+    this.service.loadBoards().subscribe();
+  }
+}
