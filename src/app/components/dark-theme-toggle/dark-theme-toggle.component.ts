@@ -8,7 +8,7 @@ import { StateService } from '../../services/state.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DarkThemeToggleComponent {
-  public toggle = this.stateService.darkThemeState$.getValue();
+  public toggle = this.stateService.darkTheme.value;
 
   constructor(private stateService: StateService) {}
 
@@ -16,6 +16,6 @@ export class DarkThemeToggleComponent {
     this.toggle = event;
     localStorage.setItem('dark-theme', JSON.stringify(event));
 
-    this.stateService.darkThemeState$.next(event);
+    this.stateService.setDarkTheme(event);
   }
 }

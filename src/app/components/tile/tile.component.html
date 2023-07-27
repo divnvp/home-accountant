@@ -11,8 +11,8 @@
       tuiTileHandle
       class="tile"
       [style.order]="order.get(index)"
-      [width]="item.width"
-      [height]="item.height"
+      [width]="item?.width ?? 3"
+      [height]="item?.height ?? 1"
     >
       <div
         class="content"
@@ -23,7 +23,7 @@
           src="tuiIconDragLarge"
           class="handle"
         ></tui-svg>
-        {{ item.content }}
+        {{ item?.content ?? '' }}
       </div>
     </tui-tile>
   </tui-tiles>

@@ -12,7 +12,7 @@ import { TileDialogComponent } from '../tile-dialog/tile-dialog.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TileComponent {
-  public boards$ = this.service.boards$;
+  public boards$ = this.service.boards.value$;
   public order = new Map();
 
   constructor(
@@ -28,10 +28,12 @@ export class TileComponent {
       })
       .subscribe({
         next: (value: Board) => {
-          this.boards$.next(
-            this.boards$.value.map((currentValue: Board) => (currentValue.id === value.id ? value : currentValue)),
+          this.service.setBoards(
+            this.service.boards.value?.map((currentValue: Board) =>
+              currentValue.id === value.id ? value : currentValue,
+            ),
           );
-          localStorage.setItem('boards', JSON.stringify(this.boards$.value));
+          // localStorage.setItem('boards', JSON.stringify(this.boards$.value));
         },
       });
   }

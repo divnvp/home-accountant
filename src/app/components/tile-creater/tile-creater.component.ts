@@ -23,8 +23,8 @@ export class TileCreaterComponent {
   }
 
   public onSubmit() {
-    this.service.boards$.next(
-      this.service.boards$.value?.concat({
+    this.service.setBoards(
+      this.service.boards.value.concat({
         id: v4(),
         width: 1,
         height: 1,
@@ -32,7 +32,7 @@ export class TileCreaterComponent {
       }),
     );
 
-    localStorage.setItem('boards', JSON.stringify(this.service.boards$.value));
+    // localStorage.setItem('boards', JSON.stringify(this.service.boards$.value));
 
     this.openedDialog = false;
     this.form.reset();

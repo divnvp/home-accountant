@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { Board } from '../models/board';
-import { State } from '../store/reducer';
-import { Store } from '@ngrx/store';
-import { addBoards } from '../store/boards/boards.actions';
+import { BehaviorSubjectItem } from '../state-management/behavior-subject-item';
+import { GlobalSettings } from '../models/settings';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StateService {
-  public darkThemeState$ = new BehaviorSubject<boolean>(JSON.parse(localStorage.getItem('dark-theme')!));
-  public boards$ = new BehaviorSubject<Board[] | null>(null);
+  readonly darkTheme: BehaviorSubjectItem<boolean> = new BehaviorSubjectItem(this.globalSettings.isDarkTheme);
+  readonly boards: BehaviorSubjectItem<Board[]> = new BehaviorSubjectItem<Board[]>([]);
 
-  constructor(private readonly store$: Store<State>) {}
+  constructor(private globalSettings: GlobalSettings) {}
 
-  loadBoards() {
-    this.store$.dispatch(addBoards([]));
+  setDarkTheme(value: boolean): void {
+    this.darkTheme.value = value;
+    this.globalSettings.setDarkTheme(value);
+  }
+
+  setBoards(value: Board[]): void {
+    this.boards.value = value;
   }
 }
