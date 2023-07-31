@@ -26,6 +26,7 @@ import {
   TuiToggleModule,
 } from '@taiga-ui/kit';
 import {
+  TuiAlertModule,
   TuiButtonModule,
   TuiDataListModule,
   TuiDialogModule,
@@ -105,4 +106,5 @@ export const TUI_MODULES = [
   TuiTilesModule,
   TuiDialogModule,
   PolymorpheusModule,
+  TuiAlertModule,
 ];

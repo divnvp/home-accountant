@@ -49,10 +49,10 @@ export class TileDialogComponent implements OnInit {
   }
 
   private formSetValue(): void {
-    this.form.setValue({
-      title: this.data.content,
-      width: this.data.width,
-      height: this.data.height,
-    });
+    // this.form.setValue({
+    //   title: this.data.content,
+    //   width: this.data.width,
+    //   height: this.data.height,
+    // });
   }
 }
