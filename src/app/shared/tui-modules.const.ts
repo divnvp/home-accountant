@@ -107,4 +107,5 @@ export const TUI_MODULES = [
   TuiDialogModule,
   PolymorpheusModule,
   TuiAlertModule,
+  TuiLoaderModule,
 ];

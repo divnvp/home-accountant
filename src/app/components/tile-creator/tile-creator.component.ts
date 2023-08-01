@@ -6,12 +6,12 @@ import { BoardsService } from '../../services/boards/boards.service';
 import { Board } from '../../models/board';
 
 @Component({
-  selector: 'ha-tile-creater',
-  templateUrl: './tile-creater.component.html',
-  styleUrls: ['./tile-creater.component.scss'],
+  selector: 'ha-tile-creator',
+  templateUrl: './tile-creator.component.html',
+  styleUrls: ['./tile-creator.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TileCreaterComponent {
+export class TileCreatorComponent {
   public form = new FormGroup({
     tileName: new FormControl(''),
   });
@@ -25,6 +25,14 @@ export class TileCreaterComponent {
   }
 
   public onSubmit() {
+    this.createBoardApi();
+    // this.state.setBoards(this.state.boards.value.concat(board));
+
+    this.openedDialog = false;
+    this.form.reset();
+  }
+
+  private createBoardApi() {
     const board: Board = {
       id: v4(),
       width: 1,
@@ -33,16 +41,5 @@ export class TileCreaterComponent {
     };
 
     this.service.createBoard(board).subscribe();
-    // this.state.setBoards(this.state.boards.value.concat(board));
-
-    this.openedDialog = false;
-    this.form.reset();
   }
 }
-
-/* {
-    "id": "12",
-    "width": 1,
-    "height": 1,
-    "content": "dsdsdss"
-}*/

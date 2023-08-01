@@ -11,7 +11,7 @@ import { BoardsModule } from '../pages/boards/boards.module';
 import { DarkThemeModule } from '../components/dark-theme/dark-theme.module';
 import { DarkThemeToggleModule } from '../components/dark-theme-toggle/dark-theme-toggle.module';
 import { TileModule } from '../components/tile/tile.module';
-import { TileCreaterModule } from '../components/tile-creater/tile-creater.module';
+import { TileCreatorModule } from '../components/tile-creator/tile-creator.module';
 import { TileDialogModule } from '../components/tile-dialog/tile-dialog.module';
 import { MenuSegmentModule } from '../components/menu-segment/menu-segment.module';
 
@@ -29,7 +29,7 @@ export const MODULES = [
   DarkThemeModule,
   DarkThemeToggleModule,
   TileModule,
-  TileCreaterModule,
+  TileCreatorModule,
   TileDialogModule,
   MenuSegmentModule,
 ];

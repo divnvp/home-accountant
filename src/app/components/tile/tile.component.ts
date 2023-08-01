@@ -13,6 +13,7 @@ import { TileDialogComponent } from '../tile-dialog/tile-dialog.component';
 })
 export class TileComponent {
   public boards$ = this.service.boards.value$;
+  public isLoading$ = this.service.loading.value$;
   public order = new Map();
 
   constructor(

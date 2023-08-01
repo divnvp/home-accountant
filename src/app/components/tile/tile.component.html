@@ -1,36 +1,38 @@
-<ha-tile-creater></ha-tile-creater>
+<tui-loader [showLoader]="!!(isLoading$ | async)" size="xxl" [inheritColor]="false" [overlay]="true">
+  <ha-tile-creator></ha-tile-creator>
 
-<div *tuiLet="(boards$ | async) as boards">
-  <tui-tiles
-    *ngIf="boards?.length; else noItems"
-    class="tiles"
-    [(order)]="order"
-  >
-    <tui-tile
-      *ngFor="let item of boards; let index = index"
-      tuiTileHandle
-      class="tile"
-      [style.order]="order.get(index)"
-      [width]="item?.width ?? 3"
-      [height]="item?.height ?? 1"
+  <div *tuiLet="(boards$ | async) as boards">
+    <tui-tiles
+      *ngIf="boards?.length; else noItems"
+      class="tiles"
+      [(order)]="order"
     >
-      <div
-        class="content"
-        (click)="openDialog(item)"
+      <tui-tile
+        *ngFor="let item of boards; let index = index"
+        tuiTileHandle
+        class="tile"
+        [style.order]="order.get(index)"
+        [width]="item?.width ?? 3"
+        [height]="item?.height ?? 1"
       >
-        <tui-svg
-          tuiTileHandle
-          src="tuiIconDragLarge"
-          class="handle"
-        ></tui-svg>
-        {{ item?.content ?? '' }}
-      </div>
-    </tui-tile>
-  </tui-tiles>
+        <div
+          class="content"
+          (click)="openDialog(item)"
+        >
+          <tui-svg
+            tuiTileHandle
+            src="tuiIconDragLarge"
+            class="handle"
+          ></tui-svg>
+          {{ item?.content ?? '' }}
+        </div>
+      </tui-tile>
+    </tui-tiles>
 
-  <ng-template #noItems>
-    <div>
-      Нет созданных досок
-    </div>
-  </ng-template>
-</div>
+    <ng-template #noItems>
+      <div>
+        Нет созданных досок
+      </div>
+    </ng-template>
+  </div>
+</tui-loader>

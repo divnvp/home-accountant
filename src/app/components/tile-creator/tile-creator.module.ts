@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TileCreaterComponent } from './tile-creater.component';
+import { TileCreatorComponent } from './tile-creator.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  declarations: [TileCreaterComponent],
+  declarations: [TileCreatorComponent],
   imports: [CommonModule, SharedModule],
-  exports: [TileCreaterComponent],
+  exports: [TileCreatorComponent],
 })
-export class TileCreaterModule {}
+export class TileCreatorModule {}
