@@ -4,6 +4,9 @@ import { v4 } from 'uuid';
 import { StateService } from '../../services/state.service';
 import { Board } from '../../models/board';
 import { BoardsService } from '../../services/boards/boards.service';
+import { tap } from 'rxjs';
+import { TuiAlertService, TuiNotification } from '@taiga-ui/core';
+import { showAlertMessage } from '../../shared/utils/alert-message.util';
 
 @Component({
   selector: 'ha-tile-creator',
@@ -18,7 +21,11 @@ export class TileCreatorComponent {
 
   public openedDialog = false;
 
-  constructor(private readonly state: StateService, private readonly service: BoardsService) {}
+  constructor(
+    private readonly state: StateService,
+    private readonly service: BoardsService,
+    private readonly alertService: TuiAlertService,
+  ) {}
 
   public createBoard(): void {
     this.openedDialog = !this.openedDialog;
@@ -26,7 +33,6 @@ export class TileCreatorComponent {
 
   public onSubmit() {
     this.createBoardApi();
-    // this.state.setBoards(this.state.boards.value.concat(board));
 
     this.openedDialog = false;
     this.form.reset();
@@ -40,6 +46,15 @@ export class TileCreatorComponent {
       content: String(this.form.value.tileName),
     };
 
-    this.service.createBoard(board).subscribe();
+    this.service
+      .createBoard(board)
+      .pipe(
+        tap(() => {
+          this.state.setBoards(this.state.boards.value.concat(board));
+
+          showAlertMessage(this.alertService, 'Доска создана', TuiNotification.Success);
+        }),
+      )
+      .subscribe();
   }
 }
