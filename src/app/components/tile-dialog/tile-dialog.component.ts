@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
+import { TuiAlertService, TuiDialogContext, TuiDialogService, TuiNotification } from '@taiga-ui/core';
 import { POLYMORPHEUS_CONTEXT } from '@tinkoff/ng-polymorpheus';
 import { Board } from '../../models/board';
+import { BoardsService } from '../../services/boards/boards.service';
+import { tap } from 'rxjs';
+import { showAlertMessage } from '../../shared/utils/alert-message.util';
 
 @Component({
   selector: 'ha-tile-dialog',
@@ -25,6 +28,8 @@ export class TileDialogComponent implements OnInit {
     @Inject(TuiDialogService) private readonly dialogs: TuiDialogService,
     @Inject(POLYMORPHEUS_CONTEXT)
     private readonly context: TuiDialogContext<Board, Board>,
+    private readonly service: BoardsService,
+    private readonly alertService: TuiAlertService,
   ) {}
 
   ngOnInit(): void {
@@ -36,12 +41,14 @@ export class TileDialogComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.context.completeWith({
+    const newTile = {
       id: this.data.id,
       content: this.form.value.title ?? '',
       width: this.form.value.width ?? 1,
       height: this.form.value.height ?? 1,
-    });
+    };
+
+    this.updateBoardApi(newTile);
   }
 
   public close(): void {
@@ -49,10 +56,23 @@ export class TileDialogComponent implements OnInit {
   }
 
   private formSetValue(): void {
-    // this.form.setValue({
-    //   title: this.data.content,
-    //   width: this.data.width,
-    //   height: this.data.height,
-    // });
+    this.form.setValue({
+      title: this.data.content.toString(),
+      width: Number(this.data.width),
+      height: Number(this.data.height),
+    });
+  }
+
+  private updateBoardApi(newTile: Board): void {
+    this.service
+      .updateBoard(newTile.id, newTile)
+      .pipe(
+        tap(() => {
+          this.context.completeWith(newTile);
+
+          showAlertMessage(this.alertService, 'Доска обновлена', TuiNotification.Success);
+        }),
+      )
+      .subscribe();
   }
 }
