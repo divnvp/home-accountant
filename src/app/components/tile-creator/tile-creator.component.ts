@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { v4 } from 'uuid';
 import { StateService } from '../../services/state.service';
-import { BoardsService } from '../../services/boards/boards.service';
 import { Board } from '../../models/board';
+import { BoardsService } from '../../services/boards/boards.service';
 
 @Component({
   selector: 'ha-tile-creator',
