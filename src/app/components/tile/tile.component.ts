@@ -34,7 +34,6 @@ export class TileComponent {
               currentValue.id === value.id ? value : currentValue,
             ),
           );
-          // localStorage.setItem('boards', JSON.stringify(this.boards$.value));
         },
       });
   }

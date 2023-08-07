@@ -1,25 +1,25 @@
 <div class="tui-text_h4">
-  {{ data.content }}
+  {{ tile.content }}
 </div>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="tui-form__row">
   <div class="tui-form__row">
     <tui-input formControlName="title">
       Вы можете ввести новое название
-      <input tuiTextfield type="text" [placeholder]="data.content">
+      <input tuiTextfield type="text" [placeholder]="tile.content">
     </tui-input>
   </div>
   <div class="tui-form__row tui-row">
     <div class="tui-col_6">
       <tui-input-number formControlName="width">
         Ширина доски
-        <input tuiTextfield type="number" [placeholder]="data.width">
+        <input tuiTextfield type="number" [placeholder]="tile.width">
       </tui-input-number>
     </div>
     <div class="tui-col_6">
       <tui-input-number formControlName="height">
         Высота доски
-        <input tuiTextfield type="number" [placeholder]="data.height">
+        <input tuiTextfield type="number" [placeholder]="tile.height">
       </tui-input-number>
     </div>
   </div>
@@ -34,6 +34,16 @@
       (click)="close()"
     >
       Закрыть
+    </button>
+    <button
+      tuiButton
+      type="button"
+      size="m"
+      appearance="accent"
+      class="tui-form__button"
+      (click)="delete()"
+    >
+      Удалить
     </button>
     <button
       tuiButton

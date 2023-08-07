@@ -20,7 +20,7 @@ export class TileDialogComponent implements OnInit {
     height: new FormControl<number>(0),
   });
 
-  get data(): Board {
+  get tile(): Board {
     return this.context.data;
   }
 
@@ -42,7 +42,7 @@ export class TileDialogComponent implements OnInit {
 
   public onSubmit() {
     const newTile = {
-      id: this.data.id,
+      id: this.tile.id,
       content: this.form.value.title ?? '',
       width: this.form.value.width ?? 1,
       height: this.form.value.height ?? 1,
@@ -55,11 +55,23 @@ export class TileDialogComponent implements OnInit {
     this.context.$implicit.complete();
   }
 
+  public delete(): void {
+    this.service
+      .deleteBoard(this.tile.id)
+      .pipe(
+        tap(() => {
+          this.context.completeWith(this.tile);
+          showAlertMessage(this.alertService, 'Доска удалена', TuiNotification.Success);
+        }),
+      )
+      .subscribe();
+  }
+
   private formSetValue(): void {
     this.form.setValue({
-      title: this.data.content.toString(),
-      width: Number(this.data.width),
-      height: Number(this.data.height),
+      title: this.tile.content.toString(),
+      width: Number(this.tile.width),
+      height: Number(this.tile.height),
     });
   }
 
@@ -69,7 +81,6 @@ export class TileDialogComponent implements OnInit {
       .pipe(
         tap(() => {
           this.context.completeWith(newTile);
-
           showAlertMessage(this.alertService, 'Доска обновлена', TuiNotification.Success);
         }),
       )
