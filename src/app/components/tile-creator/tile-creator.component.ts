@@ -27,7 +27,7 @@ export class TileCreatorComponent {
     private readonly alertService: TuiAlertService,
   ) {}
 
-  public createBoard(): void {
+  public showDialog(): void {
     this.openedDialog = !this.openedDialog;
   }
 
