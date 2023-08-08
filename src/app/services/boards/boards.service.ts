@@ -35,4 +35,27 @@ export class BoardsService {
       finalize(() => this.state.stopLoading()),
     );
   }
+
+  updateBoard(board: Board): Observable<void> {
+    this.state.startLoading();
+
+    return this.http.patch<void>(`${API.url}/board/${board.id}`, board).pipe(
+      catchError(error => catchErrorUtil(error, this.alertService)),
+      finalize(() => this.state.stopLoading()),
+    );
+  }
+
+  deleteBoard(id: string): Observable<void> {
+    this.state.startLoading();
+
+    return this.http.delete<void>(`${API.url}/board/${id}`).pipe(
+      catchError(error => catchErrorUtil(error, this.alertService)),
+      map(() => {
+        const needDeleteId = this.state.boards.value.findIndex(b => b.id === id);
+        this.state.boards.value.splice(needDeleteId, 1);
+        this.state.setBoards(this.state.boards.value);
+      }),
+      finalize(() => this.state.stopLoading()),
+    );
+  }
 }

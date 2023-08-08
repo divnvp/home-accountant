@@ -77,7 +77,7 @@ export class TileDialogComponent implements OnInit {
 
   private updateBoardApi(newTile: Board): void {
     this.service
-      .updateBoard(newTile.id, newTile)
+      .updateBoard(newTile)
       .pipe(
         tap(() => {
           this.context.completeWith(newTile);
