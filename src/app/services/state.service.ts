@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Board } from '../models/board';
+import { Board } from '../boards/models/board';
 import { BehaviorSubjectItem } from '../state/behavior-subject-item';
-import { GlobalSettings } from '../models/settings';
+import { GlobalSettings } from '../settings/models/settings';
 
 @Injectable({
   providedIn: 'root',
