@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { StateService } from './services/state.service';
 import { TuiBrightness } from '@taiga-ui/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +8,16 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private onDark$: Observable<boolean> = this.service.darkTheme.value$;
+  private settings$ = this.state.settings.value$;
 
   get nameTheme(): TuiBrightness | null {
     let theme: 'onDark' | 'onLight' | null = null;
-    this.onDark$.subscribe(value => (value ? (theme = 'onDark') : (theme = 'onLight')));
+    this.settings$.subscribe(value => {
+      return (value.darkTheme ? (theme = 'onDark') : (theme = 'onLight'))
+    });
 
     return theme;
   }
 
-  constructor(private service: StateService) {}
+  constructor(private state: StateService) {}
 }

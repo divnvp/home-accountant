@@ -1,3 +1,4 @@
 <div>
-  <ha-dark-theme-toggle></ha-dark-theme-toggle>
+  <ha-dark-theme-toggle [darkTheme]="(settings$ | async)?.darkTheme" (darkThemeToggleChange)="changeSettings($event)">
+  </ha-dark-theme-toggle>
 </div>

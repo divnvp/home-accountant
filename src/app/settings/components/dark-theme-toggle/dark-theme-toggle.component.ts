@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { StateService } from '../../../services/state.service';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'ha-dark-theme-toggle',
@@ -8,14 +7,10 @@ import { StateService } from '../../../services/state.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DarkThemeToggleComponent {
-  public toggle = this.stateService.darkTheme.value;
-
-  constructor(private stateService: StateService) {}
+  @Input() darkTheme: boolean | undefined;
+  @Output() darkThemeToggleChange = new EventEmitter<boolean>();
 
   changeToggle(event: boolean) {
-    this.toggle = event;
-    localStorage.setItem('dark-theme', JSON.stringify(event));
-
-    this.stateService.setDarkTheme(event);
+    this.darkThemeToggleChange.emit(event);
   }
 }

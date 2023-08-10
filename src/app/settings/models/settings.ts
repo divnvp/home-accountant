@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root',
-})
-export class GlobalSettings {
+export class Settings {
   darkTheme: boolean;
+  name: string;
+  surname: string;
+  birthdayDate: string;
+  email: string;
+  phone: string;
+  password: string;
 
   get isDarkTheme(): boolean {
     return this.darkTheme;
@@ -12,5 +13,16 @@ export class GlobalSettings {
 
   setDarkTheme(value: boolean) {
     this.darkTheme = value;
+  }
+
+  get fullName(): string {
+    return [this.surname, this.name].join(' ');
+  }
+
+  constructor(public data: Partial<Settings>) {
+    if (data) {
+      // noinspection TypeScriptValidateTypes
+      Object.assign(this, data);
+    }
   }
 }
