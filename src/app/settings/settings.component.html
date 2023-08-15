@@ -1,4 +1,4 @@
-<div>
+<tui-loader [showLoader]="!!(isLoading$ | async)" size="xxl" [inheritColor]="false" [overlay]="true">
   <ha-dark-theme-toggle [darkTheme]="(settings$ | async)?.darkTheme" (darkThemeToggleChange)="changeSettings($event)">
   </ha-dark-theme-toggle>
-</div>
+</tui-loader>

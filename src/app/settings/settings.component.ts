@@ -11,6 +11,7 @@ import { Settings } from "./models/settings";
 })
 export class SettingsComponent implements OnInit{
   public settings$ = this.state.settings.value$;
+  public isLoading$ = this.state.loading.value$;
 
   constructor(private readonly service: SettingsService, private readonly state: StateService) {
   }
