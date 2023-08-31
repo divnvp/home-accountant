@@ -6,11 +6,13 @@ import { BoardsComponent } from '../boards/boards.component';
 import { TablesComponent } from '../tables/tables.component';
 import { ChartsComponent } from '../charts/charts.component';
 import { SettingsComponent } from '../settings/settings.component';
+import { authGuard } from "../auth/services/auth.guard";
 
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: '',
