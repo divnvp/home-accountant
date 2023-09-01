@@ -88,6 +88,10 @@
           "error",
           4
         ],
+        "semi": [
+          "error",
+          "always"
+        ],
         "no-bitwise": "warn",
         "no-useless-escape": "warn",
         "object-curly-spacing": ["error", "always"]

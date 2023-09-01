@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { of } from "rxjs";
+import { Observable, of } from "rxjs";
+import { StateService } from "../services/state.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthQueryService {
-  isAvailable() {
-    return of(false);
+  constructor(
+    private readonly state: StateService
+  ) {
+  }
+
+  isAvailable(): Observable<boolean> {
+    return of(this.state.isAuth.value);
   }
 }

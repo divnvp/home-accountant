@@ -1,5 +1,36 @@
+@import "@taiga-ui/core/styles/taiga-ui-local";
+
 .layout {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  &__main {
+    margin: 0;
+  }
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+
+  &.container-adaptive {
+    @media #{$tui-desktop-lg-min} {
+      width: 69rem;
+    }
+
+    @media #{$tui-desktop} {
+      width: 51.5rem;
+    }
+
+    @media #{$tui-tablet} {
+      width: 47rem;
+    }
+
+    @media #{$tui-mobile} {
+      width: 100%;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+  }
 }

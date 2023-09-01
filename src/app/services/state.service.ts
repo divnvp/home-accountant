@@ -8,6 +8,7 @@ import { User } from "../models/user";
   providedIn: 'root',
 })
 export class StateService {
+  readonly isAuth: BehaviorSubjectItem<boolean> = new BehaviorSubjectItem<boolean>(false);
   readonly user: BehaviorSubjectItem<User> = new BehaviorSubjectItem<User>(new User({}));
   readonly loading: BehaviorSubjectItem<boolean> = new BehaviorSubjectItem<boolean>(false);
   readonly settings: BehaviorSubjectItem<Settings> = new BehaviorSubjectItem<Settings>(new Settings({}));
@@ -19,6 +20,10 @@ export class StateService {
 
   stopLoading(): void {
     this.loading.value = false;
+  }
+
+  setIsAuth(value: boolean): void {
+    this.isAuth.value = value;
   }
 
   setSettings(value: Settings): void {
